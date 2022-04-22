@@ -44,7 +44,6 @@ img {
 
 #player-1, #player-2, #reset{
     max-width: 128px;
-    width: 30%;
     width: 128px;
     padding: 8px 0 8px 0;
     border-radius: 4px;
