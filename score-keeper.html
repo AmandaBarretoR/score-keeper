@@ -9,28 +9,27 @@
 </head>
 <body>
     <div class="banner">
-        <!-- Alterar src da img para a hospedada no GitHub-->
         <img src="https://user-images.githubusercontent.com/84192462/165077393-a95a091b-0140-4026-ac4a-37588a2b9415.png" alt="banner">
     </div>
     <div class="title">
         <h3>Ping Pong Score Keeper</h2>
     </div>
     <div class="main">
-        <h2 id="score">0 to 0</h2>
+        <h2 id="score"><span id="scoreP1">0</span> to <span id="scoreP2">0</span></h2>
         <p>Use the buttons below to keep score</p>
             <label for="maxScore">Playing to</label>
-            <select name="maxScore" id="maxScore">
+            <select name="playTo" id="playTo">
+                <option value="3">3</option>
                 <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
-                <option value="25">25</option>
-                <option value="30">30</option>
+                <option value="7">7</option>
+                <option value="9">9</option>
+                <option value="11">11</option>
+                <option value="13">13</option>
             </select>
     </div>
     <div class="buttons">
-        <button id="player-1">+1 Player 1</button>
-        <button id="player-2">+1 Player 2</button>
+        <button id="p1">+1 Player One</button>
+        <button id="p2">+1 Player Two</button>
         <button id="reset">Reset</button>
     </div>
     <script src="score-keeper.js"></script>

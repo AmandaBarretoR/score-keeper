@@ -1,39 +1,63 @@
-const btnPlayer1 = document.querySelector("#player-1");
-const btnPlayer2 = document.querySelector("#player-2");
+const btnP1 = document.querySelector("#p1");
+const btnP2 = document.querySelector("#p2");
 const btnReset = document.querySelector("#reset");
-var scorePlayer1 = 0;
-var scorePlayer2 = 0;
+const spanP1 = document.querySelector("#scoreP1");
+const spanP2 = document.querySelector("#scoreP2");
+const playTo = document.querySelector("#playTo");
 
-btnPlayer1.addEventListener("click", function(){
-    const score = document.querySelector("#score");
-    scorePlayer1++;
-    score.innerText = `${scorePlayer1} to ${scorePlayer2}`;
+let maxScore = document.querySelector("#playTo").value;
+scoreP1 = 0;
+scoreP2 = 0;
+
+btnP1.addEventListener("click", function(){
+    scoreP1++;
+    spanP1.innerText = `${scoreP1}`;
+    spanP2.innerText = `${scoreP2}`;
     playerButtons();
+    
 })
 
-btnPlayer2.addEventListener("click", function(){
-    const score = document.querySelector("#score");
-    scorePlayer2++;
-    score.innerText = `${scorePlayer1} to ${scorePlayer2}`;
+btnP2.addEventListener("click", function(){
+    scoreP2++;
+    spanP1.innerText = `${scoreP1}`;
+    spanP2.innerText = `${scoreP2}`;
     playerButtons();
 })
 
 btnReset.addEventListener("click", function(){
-    const score = document.querySelector("#score");
-    scorePlayer1 = 0;
-    scorePlayer2 = 0;
-    score.innerText = "0 to 0";
+    resetGame();
     playerButtons();
 })
 
-// Função que desabilita os botões player1 e player 2
-const playerButtons = () => {
-    if(scorePlayer1 == document.querySelector("select").value || scorePlayer2 == document.querySelector("select").value){
-        btnPlayer1.disabled = true;
-        btnPlayer2.disabled = true;
-    } else {
-        btnPlayer1.disabled = false;
-        btnPlayer2.disabled = false;
-    }
-    
+playTo.addEventListener("change", function(){
+    maxScore = this.value;
+    playerButtons();
+    resetGame();
+})
+
+const resetGame = () => {
+    scoreP1 = 0;
+    scoreP2 = 0;
+    spanP1.innerText = `${scoreP1}`;
+    spanP2.innerText = `${scoreP2}`;
 }
+
+const playerButtons = () => {
+    if(scoreP1 == maxScore){
+        btnP1.disabled = true;
+        btnP2.disabled = true;
+        spanP1.classList.add('winner');
+        spanP2.classList.add('loser');
+    } else if(scoreP2 == maxScore){
+        btnP1.disabled = true;
+        btnP2.disabled = true;
+        spanP1.classList.add('winner');
+        spanP2.classList.add('loser');
+    } else {
+        btnP1.disabled = false;
+        btnP2.disabled = false;
+        spanP1.classList.remove('winner','loser');
+        spanP2.classList.remove('winner','loser');
+    }
+}
+

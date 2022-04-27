@@ -24,12 +24,12 @@ img {
     margin-top: 20px;
 }
 
-#player-1 {
+#p1 {
     background-color: #06d6a0;
     border: 1px solid #06d6a0;
 }
 
-#player-2 {
+#p2 {
     overflow: auto;
     background-color: #118ab2;
     border: 1px solid #118ab2;
@@ -42,15 +42,29 @@ img {
     border: 1px solid #ef476f;
 }
 
-#player-1, #player-2, #reset{
+#p1, #p2, #reset{
     max-width: 128px;
     width: 128px;
     padding: 8px 0 8px 0;
     border-radius: 4px;
     font-weight: 700;
+    color: #ffffff;
 }
 
-#player-1:hover,#player-2:hover,#reset:hover{
+#p1:hover,#p2:hover,#reset:hover{
     background-color: #ffd166;
     border: 1px solid #ffd166;
+}
+
+#p1:disabled,#p2:disabled{
+    background-color: #808080;
+    border: 1px solid #808080;
+}
+
+.winner {
+    color: #06d6a0;
+}
+
+.loser{
+    color: #ef476f;
 }
